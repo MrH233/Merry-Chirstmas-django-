@@ -1,0 +1,420 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale">
+    <meta http-equiv="X-UA-Compatible">
+    {% load static %}
+    <title>冬日の梦</title>
+    <link rel="stylesheet" href="{% static 'style.css'  %}">
+</head>
+<body>
+
+<div class="container">
+    <br/>
+    <!--速度切换开关-->
+    <div id="switch" title="2020快过去！">
+        <div class="circle"></div>
+    </div>
+    <!--主画布-->
+    <div class="main" >
+        <!--太阳-->
+        <div class="sun">
+            <span style="--i:1"></span>
+            <span style="--i:2"></span>
+            <span style="--i:3"></span>
+            <span style="--i:4"></span>
+            <span style="--i:5"></span>
+            <span style="--i:6"></span>
+            <span style="--i:7"></span>
+            <span style="--i:8"></span>
+        </div>
+        <!--山川-->
+        <div class="mountain a"></div>
+        <div class="mountain b"></div>
+        <div class="mountain c"></div>
+        <div class="mountain d"></div>
+        <div class="mountain e"></div>
+        <!--云和风-->
+        <div class="cloud_wind_wrap_fast">
+            <div class="cloud_wind_wrap_slow">
+                <div class="cloud_wind_group" style="--i:1">
+                    <div class="cloud a">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                    <div class="cloud b">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                    <div class="cloud c">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                    <div class="wind a">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                    <div class="wind b">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                    <div class="wind_small">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </div>
+                <div class="cloud_wind_group" style="--i:2">
+                    <div class="cloud a">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                    <div class="cloud b">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                    <div class="cloud c">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                    <div class="wind a">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                    <div class="wind_small">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+            <div class="wind b">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <div class="wind_small">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+                <div class="cloud_wind_group" style="--i:3">
+                    <div class="cloud a">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                    <div class="cloud b">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                    <div class="cloud c">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                    <div class="wind a">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                    <div class="wind b">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                    <div class="wind_small">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+        </div>
+            </div>
+        </div>
+        <!--小树苗-->
+        <div class="tree_wrap">
+            <div class="tree">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+        <!--风车-->
+        <div class="windmill_wrap">
+            <!--风车1号-->
+            <div class="windmill">
+                <!--支架-->
+                <div class="pole"></div>
+                <!--头部-->
+                <div class="head">
+                <!--扇叶-->
+                    <div class="fan">
+                        <span style="--i:1"></span>
+                        <span style="--i:2"></span>
+                        <span style="--i:3"></span>
+                    </div>
+                </div>
+            </div>
+            <!--风车2号-->
+            <div class="windmill left">
+                <!--支架-->
+                <div class="pole"></div>
+                <!--头部-->
+                <div class="head">
+                    <!--扇叶-->
+                    <div class="fan">
+                        <span style="--i:1"></span>
+                        <span style="--i:2"></span>
+                        <span style="--i:3"></span>
+                    </div>
+                </div>
+            </div>
+            <!--风车3号-->
+            <div class="windmill right">
+                <!--支架-->
+                <div class="pole"></div>
+                <!--头部-->
+                <div class="head">
+                    <!--扇叶-->
+                    <div class="fan">
+                        <span style="--i:1"></span>
+                        <span style="--i:2"></span>
+                        <span style="--i:3"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+        <!--按钮-->
+    <br/>
+    <form method="post" class="search-box">
+        <input class="search-txt" type="text" name="name" placeholder="请输入名字,单词或暗号" align="center">
+        <input class="search-btn" type="submit" name="submit" align="center">
+    <br/><br/>
+    </form>
+    <br/><br/><br/>
+    {#根据表单接受返回#}
+{#    <table class="shell">#}
+        {#<tr>#}
+            {#<th>祝福</th>#}
+        {#</tr>#}
+{#        {% for item in li %}#}
+{#        <tr>#}
+            {#<td>{{ item.name }}</td>#}
+{#            <td class="cell"><u>{{ item.wishes }}</u></td>#}
+{#        </tr>#}
+{#        {% endfor %}#}
+{#    </table>#}
+    {#<#侧边装饰#>#}
+    <div class="box">
+        <a class="img" href="https://www.cnki.net/" title="知网">
+            <img src="{% static "圣诞老人.png" %}" alt="">
+        </a>
+    </div>
+    <div class="box0">
+        <a class="img2" href="http://www.baidu.com" title="度娘">
+            <img src="{% static "圣诞屋.png" %}" alt="百度">
+        </a>
+    </div>
+    <div class="box1">
+        <a class="img2" href="https://pan.baidu.com/disk/home?#/all?path=%2F&vmode=list" title="百度网盘">
+            <img src="{% static "圣诞树.png" %}" alt="百度网盘">
+        </a>
+    </div>
+    <div class="box2">
+        <a class="img" href="https://v.qq.com/" title="腾讯视频">
+            <img src="{% static "圣诞树装饰.png" %}" alt="腾讯视频">
+        </a>
+    </div>
+    <div class="box3">
+        <a class="img" href="https://github.com/" title="大型交友网站">
+            <img src="{% static "圣诞花环.png" %}" alt="大型交友网站">
+        </a>
+    </div>
+    <div class="box4">
+        <a class="img" href="https://www.aliyun.com/" title="阿里云">
+            <img src="{% static "星星.png" %}" alt="阿里云">
+        </a>
+    </div>
+    <div class="box5">
+        <a class="img" href="http://www.gdjw.zjut.edu.cn/jwglxt/xtgl/login_slogin.html" title="正方系统">
+            <img src="{% static "手套.png" %}" alt="正方教育">
+        </a>
+    </div>
+    <div class="box6">
+        <a class="img" href="https://bilibili.com/" title="哔站">
+            <img src="{% static "糖果.png" %}" alt="哔站">
+        </a>
+    </div>
+    <div class="box7">
+        <a class="img2" href="https://www.zhihu.com/" title="知乎">
+            <img src="{% static "雪人.png" %}" alt="知乎">
+        </a>
+    </div>
+    <div class="box8">
+        <a class="img" href="https://www.taobao.com/" title="淘宝">
+            <img src="{% static "驯鹿.png" %}" alt="淘宝">
+        </a>
+    </div>
+    {#雪花点缀#}
+    <div class="snowflake">
+        <div class="img3">
+            <img src="{% static "雪花-01.png" %}" alt="">
+        </div>
+    </div>
+    <div class="snowflake1">
+        <div class="img3">
+            <img src="{% static "雪花-02.png" %}" alt="">
+        </div>
+    </div>
+    <div class="snowflake2">
+        <div class="img3">
+            <img src="{% static "雪花-03.png" %}" alt="">
+        </div>
+    </div>
+    <div class="snowflake3">
+        <div class="img3">
+            <img src="{% static "雪花-04.png" %}" alt="">
+        </div>
+    </div>
+    <div class="snowflake4">
+        <div class="img3">
+            <img src="{% static "雪花-02.png" %}" alt="">
+        </div>
+    </div>
+    <div class="snowflake5">
+        <div class="img3">
+            <img src="{% static "雪花-02.png" %}" alt="">
+        </div>
+    </div>
+    <div class="snowflake6">
+        <div class="img3">
+            <img src="{% static "雪花-05.png" %}" alt="">
+        </div>
+    </div>
+    <div class="snowflake7">
+        <div class="img3">
+            <img src="{% static "雪花-04.png" %}" alt="">
+        </div>
+    </div>
+    <div class="snowflake8">
+        <div class="img3">
+            <img src="{% static "雪花-01.png" %}" alt="">
+        </div>
+    </div>
+    <div class="snowflake9">
+        <div class="img3">
+            <img src="{% static "雪花-05.png" %}" alt="">
+        </div>
+    </div>
+</div>
+
+<!--卡片与祝福-->{% for item in li %}
+<div class="container2">
+    <div class="body2">
+        <div class="card">
+                <!--卡片正面-->
+                <div class="card_front">
+                    <p class="font1"></p>
+                </div>
+                <!--卡片背面-->
+                {% if item.word == none %}
+                <div class="card_back">
+                    <p class="font1">{{ item.wishes }}</p>
+                </div>
+                {% else %}
+                <div class="card_back">
+                    <p class="font1">{{ item.transition }}</p>
+                    <p class="font1">{{ item.word }}</p>
+                </div>
+                {% endif %}
+                {% endfor %}
+        </div>
+    </div>
+</div>
+
+<div class="channel"></div>
+<!--<img src="IMG_20190828_210437.jpg" >-->
+
+    <script>
+        // 找到switch元素
+        let swch = document.getElementById('switch');
+        let container = document.querySelector('.container');
+        //绑定点击事件
+        swch.addEventListener('click',(e) => {
+            //可以实用切换
+            //swch.classList.toggle('switched');
+            if(swch.classList.contains('switched')){
+                //移除样式
+                swch.classList.remove('switched');
+                //不选中为快
+                container.classList.remove('slow');
+            }else{
+                //增加样式
+                swch.classList.add('switched');
+                //选中为慢
+                container.classList.add('slow');
+
+            }
+        });
+    </script><br/><br/>
+<script defer src="https://use.fontawesome.com/releases/v5.0.0/js/all.js"></script>
+
+</body>
+</html>

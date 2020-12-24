@@ -1,0 +1,1326 @@
+:root
+{
+    --background-color: #ffffff;
+    --border-color:#7591AD;
+    --text-color:#34498E;
+    --color1:#EC3E27;
+    --color2:#FD79A8;
+    --color3: #0984e3;
+    --color4:#00B894;
+    --color5:#FDCB6E;
+    --color6:#E056FD;
+    --color7: #3cc92f;
+    --color8: #c3fa69;
+}
+
+*,
+::after,
+::before
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html
+{
+    font-size:14px;
+}
+body
+{
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--background-color);
+    display:flex;
+    justify-content: center;
+    font-family:'Montserrat', sans-serif, "Arial Black";
+    align-items:center;
+    margin:0;
+    padding:0;
+}
+
+.search-box
+{
+    transition:absolute;
+    top:100%;
+    left:100%;
+    transform:translate(0,20%);
+    /*background: rgb(253, 246, 241);*/
+    background: -webkit-linear-gradient(40deg, #b1ffe0, #fcf073);
+    height:50px;
+    border-radius:120px;
+    padding:0;
+}
+.search-box:hover > .search-txt
+{
+    width:250px;
+    padding:12px 15px;
+
+}
+.search-box:hover > .search-btn
+{
+    background:#000000;
+}
+
+.search-btn
+{
+    content: '提交';
+    color: #000000;
+    float:right;
+    width:51px;
+    height:51px;
+    border-radius:50%;
+    background: #000000;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    transition:0.5s;
+    /*margin:0;*/
+    /*padding:0;*/
+}
+.search-txt
+{
+    border:none;
+    background:none;
+    outline:none;
+    float:left;
+    color: #000000;
+    font-size:20px;
+    transition:0.4s;
+    line-height:0;
+    width:0;
+}
+
+
+.channel
+{
+    position: absolute;
+    width:80%;
+    text-align:center;
+    top: 10vh;
+    left: 50%;
+    transform:translateX(-50%);
+    font-size:5vmin;
+    font-weight:bold;
+    color: #35353588;
+    z-index:10000;
+}
+.container
+{
+    position:absolute;
+    width: 100vw;
+    height: 100vh;
+    /*background-color: #fdaa9b;*/
+    background:-webkit-linear-gradient(315deg, #ff8eb7, #e491ff);
+    display:flex;
+    justify-content: center;
+    align-items:center;
+    flex-direction: column;
+}
+#switch
+{
+    position:relative;
+    width:60px;
+    height:30px;
+    border: 2px solid #333;
+    border-radius:30px;
+    cursor:pointer;
+}
+#switch::before,
+#switch::after
+{
+    position:absolute;
+    line-height: 26px;
+    text-transform:uppercase;
+    font-weight:800;
+    padding:0 20px;
+    /*background-color:#0984e3;*/
+    /*取消前后状态名称的鼠标效果以及点击事件响应*/
+    cursor: initial;
+    pointer-events: none;
+}
+#switch::before
+{
+    content: '2020';
+    right: 100%;
+    color: #b1ffe0;
+    line-height: 26px;
+    text-transform:uppercase;
+}
+#switch::after
+{
+    content:'2021';
+    color: #fcf073;
+    left:100%;
+}
+
+#switch .circle
+{
+    position: absolute;
+    top:3px;
+    left:3px;
+    width:20px;
+    height:20px;
+    border:2px solid #333;
+    border-radius: 50%;
+    box-shadow: inset 4px -2px 0 0 var(--color8);
+    transition: all .3s cubic-bezier(.86, 1.51, .74, 1);
+}
+
+/* 点击选中情况*/
+#switch.switched .circle
+{
+    left:calc(100% - 20px - 3px);
+    box-shadow: inset 4px -2px 0 0 var(--color3);
+}
+
+/*主画布外框*/
+.main
+{
+    position:relative;
+    width: 400px;
+    height:300px;
+    border:2px solid #333333;
+    margin-top:20px;
+    overflow:hidden;
+    background-color: #fdf6f1;
+}
+
+/*太阳*/
+
+.sun
+{
+    position:absolute;
+    width:20px;
+    height:20px;
+    border:2px solid #333;
+    border-radius: 50%;
+    left:270px;
+    top:50px;
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    animation: sun_rotate 10s linear infinite;
+}
+@keyframes sun_rotate
+{
+    0%{
+        transform: rotate(0deg);
+    }100%{
+        transform: rotate(360deg);
+         }
+}
+
+.sun span
+{
+    position: absolute;
+    display:block;
+    height:2px;
+    width:16px;
+    background-color: #333;
+    transform:
+            rotate(calc(var(--i) * 45deg))
+    translateX(-20px);
+    box-shadow:4px 4px 0 0 var(--color5);
+    animation: sun_ray 1s linear infinite;
+    animation-delay: calc(var(--i)* -0.5s);
+}
+
+@keyframes sun_ray
+{
+    0%{
+        transform:rotate(calc(var(--i) * 45deg))
+        translateX(-20px) scaleX(1);
+    }50%{
+        transform:rotate(calc(var(--i) * 45deg))
+        translateX(-20px) scaleX(0.6);
+    }100%{
+        transform:rotate(calc(var(--i) * 45deg))
+        translateX(-20px) scaleX(1);
+    }
+}
+
+/*群山*/
+
+.mountain
+{
+    position:absolute;
+    border:3px solid #333;
+    transform: rotate(45deg);
+}
+.mountain.a
+{
+    width:14px;
+    height:14px;
+    left:80px;
+    bottom:35px;
+}
+.mountain.b
+{
+    width:18px;
+    height:18px;
+    left:130px;
+    bottom:45px;
+}
+.mountain.c
+{
+    width:20px;
+    height:20px;
+    left:190px;
+    bottom:60px;
+}
+.mountain.d
+{
+    width:2px;
+    height:2px;
+    left:240px;
+    bottom:62px;
+    border-bottom:none;
+}
+.mountain.e
+{
+    width:14px;
+    height:14px;
+    left:285px;
+    bottom:41px;
+}
+.mountain.a::after,
+.mountain.b::after,
+.mountain.c::after,
+.mountain.d::after,
+.mountain.e::after,
+.mountain.a::before,
+.mountain.b::before,
+.mountain.c::before,
+.mountain.d::before,
+.mountain.e::before
+{
+    position:absolute;
+    content: '';
+    background-color: #333;
+}
+
+.mountain.a::after,
+.mountain.b::after,
+.mountain.c::after,
+.mountain.d::after,
+.mountain.e::after
+{
+    left:-3px;
+    top:100%;
+    width:2px;
+}
+
+.mountain.a::after
+{
+    height:71px;
+}
+.mountain.b::after
+{
+    height:51px;
+}
+.mountain.c::after
+{
+    height:71px;
+}
+.mountain.d::after
+{
+    height:15px;
+}
+.mountain.e::after
+{
+    height:19px;
+}
+
+.mountain.a::before,
+.mountain.b::before,
+.mountain.c::before,
+.mountain.d::before,
+.mountain.e::before
+{
+    top:-3px;
+    left:120%;
+    height:2px;
+}
+
+.mountain.a::before
+{
+    width:14px;
+    box-shadow:-5px -5px 0 0 var(--color4);
+}
+.mountain.b::before
+{
+    width:14px;
+    box-shadow:-5px -5px 0 0 var(--color4);
+}
+.mountain.c::before
+{
+    width:36px;
+    box-shadow:-16px -5px 0 0 var(--color4);
+}
+.mountain.d::before
+{
+    width:55px;
+    box-shadow: 5px 5px 0 0 var(--color4);
+}
+.mountain.e::before
+{
+    width:70px;
+    box-shadow:5px 6px 0 0 var(--color4);
+}
+
+/*按钮前后设置*/
+/*.main{*/
+/*    overflow:visible;*/
+/*}*/
+.cloud_wind_wrap_fast{
+    /* (画布大小-两个边框)*3 */
+    width:1188px;
+    height:100%;
+    animation: fly 3s linear infinite;
+    animation-play-state:running;
+}
+.slow .cloud_wind_wrap_fast{
+    animation-play-state:paused;
+}
+.cloud_wind_wrap_slow{
+    width:1188px;
+    height:100%;
+    display:flex;
+    justify-content:flex-start;
+    align-items:center;
+    animation:fly 6s linear infinite;
+    animation-play-state:paused;
+}
+.slow .cloud_wind_wrap_slow{
+    animation-play-state: running;
+}
+
+/*白云朵朵*/
+.cloud_wind_group
+{
+    position:relative;
+    width:100%;
+    height:100%;
+    /*animation: fly 12s linear infinite;*/
+    /*animation-delay:calc(var(--i) * -6s);*/
+}
+
+@keyframes fly
+{
+    0%{
+        transform:translateX(0%);
+    }
+    100%
+    {
+        transform:translateX(-33.3333333333333333%);
+    }
+}
+
+.cloud
+{
+    position:absolute;
+    width:60px;
+    height:45px;
+    left:60px;
+    top:20px;
+}
+
+.cloud span
+{
+    position:absolute;
+    display:block;
+    background-color:#fff;
+    border:2px solid #333;
+    border-radius:50%;
+}
+.cloud span:nth-child(1)
+{
+    width:20px;
+    height:20px;
+    bottom:0;
+    left:0;
+    border-right-color:transparent;
+    border-bottom-color:transparent;
+    transform:rotate(-45deg);
+}
+.cloud span:nth-child(2)
+{
+    width:20px;
+    height:20px;
+    left:10px;
+    bottom:10px;
+    border-right-color:transparent;
+    border-top-color:transparent;
+    border-bottom-color:transparent;
+    transform:rotate(45deg);
+}
+.cloud span:nth-child(3)
+{
+    width:30px;
+    height:30px;
+    bottom:12px;
+    left:15px;
+    border-right-color:transparent;
+    border-bottom-color:transparent;
+    transform:rotate(50deg);
+    box-shadow:0 -3px 0 0 var(--color3);
+}
+.cloud span:nth-child(4)
+{
+    width:27px;
+    height:27px;
+    bottom:0;
+    left:31px;
+    border-left-color:transparent;
+    transform:rotate(0deg);
+    box-shadow:2px -1px 0 0 var(--color3);
+}
+.cloud span:nth-child(5)
+{
+    width:35px;
+    height:15px;
+    left:10px;
+    bottom:0;
+    border-radius:0;
+    border-width:0 0 2px 0;
+}
+/*中间云朵的阴影*/
+.cloud.b span:nth-child(1)
+{
+    box-shadow:0 -3px 0 0 var(--color3);
+}
+.cloud.b span:nth-child(2)
+{
+    box-shadow:-2px -1px 0 0 var(--color3);
+}
+.cloud.b span:nth-child(3)
+{
+    box-shadow:-3px -1px 0 0 var(--color3);
+}
+.cloud.b span:nth-child(4)
+{
+    box-shadow:none;
+    /*去除继承*/
+}
+
+.cloud.a
+{
+    left:60px;
+    top:20px;
+}
+.cloud.b
+{
+    left:160px;
+    top:60px;
+    transform:rotateY(180deg);
+}
+.cloud.c
+{
+    left:280px;
+    top:50px;
+}
+
+/*风来了*/
+.wind
+{
+    position:absolute;
+    width:10px;
+    height:10px;
+    /*background-color:#EC3E27;*/
+    top:100px;
+    left:40px;
+}
+.wind.a
+{
+    top: 100px;
+    left: 40px;
+}
+.wind.b
+{
+    top:140px;
+    left:260px;
+}
+
+/*风的纹理*/
+.wind span,
+.wind span::before,
+.wind span::after
+{
+    position:absolute;
+    background-color:#555;
+    height:3px;
+}
+
+.wind span::before,
+.wind span::after
+{
+    content:'';
+}
+.wind span,
+.wind span ::after
+{
+    box-shadow:4px 4px 0 -1px var(--color3);
+}
+
+
+/*大风纹理一*/
+.wind span:nth-child(1)
+{
+    top:0;
+    left:0;
+    width:40px;
+    height:3px;
+}
+.wind span:nth-child(1)::before
+{
+    width:10px;
+    height:10px;
+    left:-5px;
+    bottom:0;
+    background-color:transparent;
+    border:3px solid #555;
+    border-radius:50%;
+    border-color:transparent transparent #555 #555;
+    transform:rotate(45deg);
+}
+.wind span:nth-child(1)::after
+{
+    width:10px;
+    top:0;
+    left:110%;
+}
+/*大风纹理二*/
+.wind span:nth-child(2)
+{
+    top:8px;
+    left:-20px;
+    width:40px;
+}
+.wind span:nth-child(2)::before
+{
+    width:10px;
+    height:10px;
+    left:-5px;
+    bottom:0;
+    background-color:transparent;
+    border:3px solid #555;
+    border-radius:50%;
+    border-color:transparent transparent #555 #555;
+    transform:rotate(45deg);
+}
+.wind span:nth-child(2)::after
+{
+    width:50px;
+    top:0;
+    left:110%;
+}
+/*大风纹理三*/
+.wind span:nth-child(3)
+{
+    top:15px;
+    left:50px;
+    width:20px;
+}
+.wind span:nth-child(3)::before
+{
+    width:40px;
+    top:0;
+    right:140%;
+}
+.wind span:nth-child(3)::after
+{
+    width:40px;
+    top:0;
+    left:140%;
+}
+/*大风纹理四*/
+.wind span:nth-child(4)
+{
+    top:20px;
+    left:30px;
+    width:50px;
+}
+.wind span:nth-child(4)::before
+{
+    width:10px;
+    top:0;
+    right:120%;
+}
+.wind span:nth-child(4)::after
+{
+    width:10px;
+    top:0;
+    left:120%;
+}
+/*小风*/
+.wind_small{
+    position:absolute;
+    width:100%;
+    height:100%;
+
+}
+/*小风纹理*/
+.wind_small span,
+.wind_small span::after
+{
+    position:absolute;
+    height:3px;
+    background-color:#555;
+    box-shadow:4px 4px 0 -1px var(--color3);
+}
+.wind_small span::after
+{
+    content:'';
+    width:50%;
+    top:0;
+    left:120%;
+}
+.wind_small span:nth-child(1)
+{
+    top:12px;
+    left:5px;
+    width:50px;
+}
+.wind_small span:nth-child(2)
+{
+    top:32px;
+    left:120px;
+    width:20px;
+}
+.wind_small span:nth-child(3)
+{
+    top:152px;
+    left:120px;
+    width:20px;
+}
+.wind_small span:nth-child(4)
+{
+    top:172px;
+    left:60px;
+    width:20px;
+}
+.wind_small span:nth-child(5)
+{
+    top:60px;
+    left:140px;
+    width:10px;
+}
+.wind_small span:nth-child(5)::after
+{
+     display:none;
+}
+.wind_small span:nth-child(6){
+    top:20px;
+    left:300px;
+    width:30px;
+}
+.wind_small span:nth-child(7)
+{
+    top:115px;
+    left:330px;
+    width:30px;
+}
+.wind_small span:nth-child(8)
+{
+    top:170px;
+    left:200px;
+    width:10px;
+}
+.wind_small span:nth-child(8)::after
+{
+    display:none;
+}
+
+/*四棵树*/
+.tree_wrap,
+.tree
+{
+    position:absolute;
+    width:100%;
+    height:60px;
+    left:0;
+    bottom:0;
+    /*background-color:#00b89466;*/
+    transform-origin:bottom;
+    transition:all 0.2s linear;
+}
+.tree
+{
+    /*background-color:#E056FD55;*/
+    animation:tree_move 1s linear infinite;
+    transform-origin:bottom;
+}
+.slow .tree_wrap{
+    transform:skewX(-10deg);
+}
+
+@keyframes tree_move {
+    0%,
+    100%{
+        transform:skewX(16deg);
+    }20%{
+        transform:skewX(18deg);
+    }40%{
+        transform:skewX(20deg);
+    }60%{
+        transform:skewX(17deg);
+    }80%{
+        transform:skewX(18deg);
+    }
+}
+
+.tree span
+{
+    position:absolute;
+    width:3px;
+    height:10px;
+    bottom:0;
+
+    background-color:#333;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+/*子类创建四棵树*/
+.tree span:nth-child(1)
+{
+    left:72px;
+    height:15px;
+}
+.tree span:nth-child(2)
+{
+    left:150px;
+    height:5px;
+    width:4px;
+}
+.tree span:nth-child(3)
+{
+    left:195px;
+    height:16px;
+}
+.tree span:nth-child(4)
+{
+    left:320px;
+    height:10px;
+}
+
+
+.tree span::before,
+.tree span::after
+{
+    position:absolute;
+    content:'';
+    border:3px solid #333;
+    width:16px;
+    height:30px;
+    bottom:100%;
+    border-radius:50%;
+    background-color:#fff;
+    box-shadow: inset -3px 4px 5px 0 var(--color7);
+}
+/*树的边缘阴影*/
+.tree span::after
+{
+    border-color:transparent #2d950b transparent
+                transparent;
+    background-color:transparent;
+    transform:rotate(-15deg) translate(5px,-4px);
+    box-shadow:none;
+}
+
+/*风车*/
+
+.windmill_wrap
+{
+    position:absolute;
+    width:100%;
+    height:120px;
+    left:0;
+    bottom:0;
+    /*background-color:#00b89466;*/
+}
+.windmill
+{
+    position:absolute;
+    /*width:114px;*/
+    height:100px;
+    left:220px;
+    bottom:0;
+    /*background-color:#bdc581;*/
+    display:flex;
+    justify-content:center;
+    align-items:center
+}
+.windmill.left
+{
+    left:100px;
+    transform:scale(0.8);
+    transform-origin:bottom;
+}
+.windmill.right
+{
+    left:350px;
+    transform:scale(0.6);
+    transform-origin:bottom;
+}
+/*风车柱子*/
+.windmill .pole
+{
+    position:absolute;
+    width:14px;
+    height:120px;
+    bottom:0;
+    perspective:70px;
+    /*background-color:#535c0f;*/
+}
+.windmill .pole::after
+{
+    position:absolute;
+    content:'';
+    width:100%;
+    height:100%;
+    background-color:#fff;
+    border:3px solid #333;
+    border-width:0 3px;
+    transform-origin:bottom;
+    transform:rotateX(15deg);
+}
+/*风车头部*/
+.windmill .head
+{
+    position:absolute;
+    width:10px;
+    height:10px;
+    top:0;
+    background-color:#EC3E27;
+    transform:translateY(-50%);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    animation:windmill_fan_rotate 4s linear infinite;
+    animation-play-state:paused;
+}
+
+.slow .windmill .head{
+    animation-play-state:running;
+}
+
+/*扇叶组合*/
+.windmill .head .fan
+{
+    position:absolute;
+    width:10px;
+    height:10px;
+    background-color:#27EC72;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    animation:windmill_fan_rotate 2s linear infinite;
+    animation-play-state:running;
+}
+
+.slow .windmill .head .fan{
+    animation-play-state:paused;
+}
+
+/*扇叶中心圆*/
+.windmill .head .fan::after
+{
+    position:absolute;
+    content:'';
+    width:15px;
+    height:15px;
+    border-radius:50%;
+    background-color:#fff;
+    border:3px solid #333;
+
+}
+/*扇叶*/
+.windmill .head .fan span
+{
+    position:absolute;
+    width:70px;
+    height:15px;
+    background-color:#fff;
+    border:3px solid #333;
+    border-radius:100%;
+    transform:rotate(calc(var(--i) * 120deg)) translateX(30px);
+
+}
+/*旋转动画效果*/
+@keyframes windmill_fan_rotate
+{
+    0%{
+        transform:rotate(0deg);
+    }100%{
+        transform:rotate(-360deg);
+         }
+
+}
+
+.wish{
+    position:absolute;
+    width:70px;
+    height:15px;
+}
+
+/*浮动仿生图标框*/
+.container .box0{
+    position:absolute;
+    display:flex;
+    float:left;
+    justify-content:space-around;
+    flex-direction:column;
+    align-items:center;
+    align-content: center;
+    width:100px;
+    height:140px;
+    left:370px;
+    bottom:100px;
+    margin:0;
+}
+.container .box{
+    position:absolute;
+    display:flex;
+    float:left;
+    justify-content:space-around;
+    flex-direction:column;
+    align-items:center;
+    align-content: center;
+    width:100px;
+    height:140px;
+    left:320px;
+    top:245px;
+    margin:0;
+}
+.container .box1{
+    position:absolute;
+    display:flex;
+    float:left;
+    justify-content:space-around;
+    flex-direction:column;
+    align-items:center;
+    align-content: center;
+    width:100px;
+    height:140px;
+    left:5%;
+    bottom:10%;
+    margin:50px;
+}
+.container .box2{
+    position:absolute;
+    display:flex;
+    float:left;
+    justify-content:space-around;
+    flex-direction:column;
+    align-items:center;
+    align-content: center;
+    width:50px;
+    height:50px;
+    left:80px;
+    bottom:45%;
+    margin:0;
+}
+.container .box3{
+    position:absolute;
+    display:flex;
+    float:left;
+    justify-content:space-around;
+    flex-direction:column;
+    align-items:center;
+    align-content: center;
+    width:50px;
+    height:50px;
+    left:732px;
+    top:38px;
+    margin:10px;
+}
+.container .box4{
+    position:absolute;
+    display:flex;
+    float:left;
+    justify-content:space-around;
+    flex-direction:column;
+    align-items:center;
+    align-content: center;
+    width:50px;
+    height:50px;
+    left:180px;
+    top:120px;
+    margin:10px;
+}
+.container .box5{
+    position:absolute;
+    display:flex;
+    float:left;
+    justify-content:space-around;
+    flex-direction:column;
+    align-items:center;
+    align-content: center;
+    width:50px;
+    height:50px;
+    right:727px;
+    bottom:7%;
+    margin:10px;
+}
+.container .box6{
+    position:absolute;
+    display:flex;
+    float:left;
+    justify-content:space-around;
+    flex-direction:column;
+    align-items:center;
+    align-content: center;
+    width:50px;
+    height:50px;
+    right:260px;
+    top:15%;
+    margin:10px;
+}
+.container .box7{
+    position:absolute;
+    display:flex;
+    float:left;
+    justify-content:space-around;
+    flex-direction:column;
+    align-items:center;
+    align-content: center;
+    width:50px;
+    height:50px;
+    right:200px;
+    bottom:15%;
+    margin:10px;
+}
+.container .box8{
+    position:absolute;
+    display:flex;
+    float:right;
+    justify-content:space-around;
+    flex-direction:column;
+    align-items:center;
+    align-content: center;
+    width:50px;
+    height:50px;
+    right:450px;
+    bottom:20%;
+    margin:10px;
+}
+
+/*小图标动效设置*/
+.container .img{
+    width:130px;
+    height:130px;
+    box-shadow:0 0 0 rgba(0,0,0,0.1),
+    0 0 0 rgb(222, 110, 151);
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background-color: transparent;
+    transition: box-shadow .2s ease-out;
+    position:absolute;
+}
+.container .img img{
+    width:70px;
+    transition:width  .4s ease-out;
+}
+.container .img:hover{
+    box-shadow:0 0 0 rgba(0,0,0,0.1),
+    0 0 0 rgb(255, 142, 183),
+    inset 10px 10px 20px rgba(0,0,0,0.1),
+    inset -18px -18px 30px rgb(228, 145, 255);;
+}
+.container .img:hover img{
+    width:85px;
+    transition:width .2s ease-out;
+}
+
+/*大图标动效设置*/
+.container .img2{
+    width:200px;
+    height:200px;
+    box-shadow:0 0 0 rgba(0,0,0,0.1),
+    0 0 0 rgb(255, 142, 183);
+    border-radius:20px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background-color:transparent;
+    transition: box-shadow .2s ease-out;
+    position:absolute;
+}
+.container .img2 img{
+    width:120px;
+    transition:width  .4s ease-out;
+}
+.container .img2:hover{
+    box-shadow:0 0 0 rgba(0,0,0,0.1),
+    0 0 0 rgb(255, 142, 183),
+    inset 10px 10px 20px rgba(0,0,0,0.1),
+    inset -18px -18px 30px rgb(228, 145, 255);;
+}
+.container .img2:hover img{
+    width:150px;
+    transition:width .4s ease-out;
+}
+
+/*雪花盒子的位置设置*/
+.snowflake{
+    position:absolute;
+    top:260px;
+    left:140px;
+}
+.snowflake1{
+    position:absolute;
+    top:80px;
+    left:320px;
+}
+.snowflake2{
+    position:absolute;
+    top:200px;
+    left:430px;
+}
+.snowflake3{
+    position:absolute;
+    bottom:360px;
+    left:260px;
+}
+.snowflake4{
+    position:absolute;
+    top:80px;
+    left:60px;
+}
+.snowflake5{
+    position:absolute;
+    top:110px;
+    right:480px;
+}
+.snowflake6{
+    position:absolute;
+    top:320px;
+    right:120px;
+}
+.snowflake7{
+    position:absolute;
+    top:80px;
+    right:160px;
+}
+.snowflake8{
+    position:absolute;
+    bottom:290px;
+    right:310px;
+}
+.snowflake9{
+    position:absolute;
+    bottom:420px;
+    right:430px;
+}
+
+/*雪花大小与外观设置*/
+.container .img3{
+    display:flex;
+    background-color: transparent;
+    position:absolute;
+}
+.container .img3 img{
+    width:25px;
+    height:25px;
+}
+
+/*表格式接受返回的修饰*/
+/*.shell*/
+/*{*/
+/*    position:absolute;*/
+/*    float:right;*/
+/*    right:260px;*/
+/*    width:200px;*/
+/*    height:100px;*/
+/*    border-radius:50%;*/
+/*    border-image:image-set();*/
+/*}*/
+/*.cell*/
+/*{*/
+/*    align-content:center;*/
+/*    font-family: SimSun-ExtB, serif;*/
+/*    font-size:30px;*/
+/*    font-weight:500;*/
+/*    text-decoration:underline;*/
+/*}*/
+
+.container2{
+    margin:0;
+    padding:0;
+    user-select:none;
+}
+.body{
+    width:100%;
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+/*卡片总布局*/
+.card{
+    position:relative;
+    transform-style:preserve-3d;
+    right:-430px;
+    bottom:36px;
+    width:300px;
+    height:200px;
+    border-radius:30px;
+    cursor:pointer;
+    box-shadow:18px 18px 30px rgba(0,0,0,0.1),
+    -18px -18px 30px rgba(0,0,0,0.1);
+    /*起始的动画效果*/
+    animation: rotate-reverse 1s cubic-bezier(.76,-0.51,.29,1.5) forwards;
+}
+/*鼠标触发的动画效果*/
+.card:active{
+    animation: rotate 1s cubic-bezier(.76,-0.51,.29,1.5) forwards;
+}
+/*卡片正面和背面装饰*/
+.card_front,.card_back{
+    width:100%;
+    height:100%;
+    display:flex;
+    justify-content:space-around;
+    align-items:center;
+    flex-direction:column;
+    border-radius:30px;
+    background:-webkit-linear-gradient(315deg,#ff9f9f,#ff67fe);
+}
+
+.card_front{
+    position:absolute;
+}
+/*设置背面翻转180°*/
+.card_back{
+    transform-style:preserve-3d;
+    transform:rotateY(180deg);
+}
+/*正转动画*/
+@keyframes rotate{
+    0%{
+        transform:rotateY(0deg);
+    }100%{
+        transform:rotateY(180deg);
+    }
+}
+/*反转动画*/
+@keyframes rotate-reverse{
+    0%{
+        transform:rotateY(180deg);
+    }100%{
+        transform:rotateY(0deg);
+    }
+}
+
+/*块标签字体格式*/
+.font1{
+    font-size:1.3em;
+    align-content:center;
+    font-family: SimSun-ExtB, serif;
+    font-weight:600;
+    /*text-decoration:underline;*/
+}
