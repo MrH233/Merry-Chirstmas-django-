@@ -48,11 +48,11 @@ body
 }
 .font2{
     position:absolute;
-    font-size:2em;
+    font-size:2.5em;
     font-family: "Roboto", "Lucida Grande", "DejaVu Sans", "Bitstream Vera Sans", Verdana, Arial, sans-serif;
-    font-weight:500;
+    font-weight:600;
     text-align:center;
-    left:200px;
+    left:175px;
     color: #ffffff;
 }
 .button1{

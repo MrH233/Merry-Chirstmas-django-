@@ -49,4 +49,10 @@ def search(request):
 
 def letter_game(request):
     s = 0
+    # if request.method == 'POST':
     return render(request, 'temp1/letter_game.html')
+
+
+def letter_game_register(request):
+    return render(request, 'temp1/letter_game_register.html')
+

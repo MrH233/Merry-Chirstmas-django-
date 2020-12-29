@@ -24,5 +24,7 @@ urlpatterns = {
     path('db_handle', views.db_handle),
     path('', views.search),
     path('letter_game', views.letter_game),
+    path('letter_game_register', views.letter_game_register),
+
     # set(staticfiles_urlpatterns()),
 }
