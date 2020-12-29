@@ -1,3 +1,4 @@
+from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from django.views.decorators.csrf import csrf_exempt
 
@@ -32,6 +33,8 @@ def search(request):
             return render(request, 'temp1/original.html', {'error_msg': error_msg})
         elif name == "----":
             return render(request, 'temp1/db_ans.html')
+        elif name == "letter":
+            return HttpResponseRedirect('/letter_game')
         elif name == "game":
             return render(request, 'temp1/game.html')
         elif 97 <= ord(name[0]) <= 122:
@@ -42,3 +45,8 @@ def search(request):
             return render(request, 'temp1/original.html', {'li': res})
     elif request.method == 'GET':
         return render(request, 'temp1/original.html', {'error_msg': ''})
+
+
+def letter_game(request):
+    s = 0
+    return render(request, 'temp1/letter_game.html')

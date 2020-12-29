@@ -22,6 +22,7 @@ urlpatterns = {
     path('admin/', admin.site.urls),
     path('index$', views.index),
     path('db_handle', views.db_handle),
-    path('target', views.search),
+    path('', views.search),
+    path('letter_game', views.letter_game),
     # set(staticfiles_urlpatterns()),
 }

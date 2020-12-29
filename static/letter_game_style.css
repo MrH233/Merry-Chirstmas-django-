@@ -1,0 +1,87 @@
+body
+{
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--background-color);
+    display:flex;
+    justify-content: center;
+    font-family:'Montserrat', sans-serif, "Arial Black";
+    align-items:center;
+    margin:0;
+    padding:0;
+}
+
+.container
+{
+    margin:0;
+    padding:0;
+    position:absolute;
+    width: 100vw;
+    height: 100vh;
+    background:-webkit-linear-gradient(315deg, rgba(0, 255, 215, 0.98), rgb(255, 0, 169));
+    display:flex;
+    justify-content: center;
+    align-items:center;
+    flex-direction: column;
+}
+.main
+{
+    position:relative;
+    width: 600px;
+    height:450px;
+    border:3px solid #333333;
+    margin-top:20px;
+    overflow:hidden;
+    border-radius:20px;
+    background:-webkit-linear-gradient(315deg, #000000, #000000);
+    box-shadow:20px 20px 40px 10px rgba(0, 255, 215, 0.98),
+    -20px -20px 60px 10px rgb(255, 11, 176);
+    /*30px -30px 80px rgba(0, 255, 215, 0.98),*/
+    /*10px 10px 80px rgba(0, 255, 215, 0.98),*/
+}
+.font1{
+    font-size:2em;
+    align-content:center;
+    font-family: SimSun-ExtB, serif;
+    font-weight:600;
+    /*text-decoration:underline;*/
+}
+.font2{
+    position:absolute;
+    font-size:2em;
+    font-family: "Roboto", "Lucida Grande", "DejaVu Sans", "Bitstream Vera Sans", Verdana, Arial, sans-serif;
+    font-weight:500;
+    text-align:center;
+    left:200px;
+    color: #ffffff;
+}
+.button1{
+    position:absolute;
+    content:'注册';
+    font-size:1.3em;
+    font-family: "Roboto", "Lucida Grande", "DejaVu Sans", "Bitstream Vera Sans", Verdana, Arial, sans-serif;
+    font-weight:500;
+    text-align:center;
+    height:75px;
+    width:120px;
+    border-radius:30px;
+    left:235px;
+    top:150px;
+    color: #000000;
+}
+.button2{
+    position:absolute;
+    content:'注册';
+    font-size:1.3em;
+    font-family: "Roboto", "Lucida Grande", "DejaVu Sans", "Bitstream Vera Sans", Verdana, Arial, sans-serif;
+    font-weight:500;
+    text-align:center;
+    width:120px;
+    height:75px;
+    border-radius:30px;
+    left:235px;
+    top:280px;
+    color: #000000;
+}
+
+
