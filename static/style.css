@@ -48,6 +48,8 @@ body
     background: -webkit-linear-gradient(40deg, #b1ffe0, #fcf073);
     height:50px;
     border-radius:120px;
+    box-shadow:3px 3px 25px rgb(177, 255, 224),
+    -3px -3px 25px rgb(252, 240, 115);
     padding:0;
 }
 .search-box:hover > .search-txt

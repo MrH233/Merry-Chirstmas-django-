@@ -93,6 +93,16 @@ body
     top:50px;
 }
 #button6{
+    right:10px;
+    top:130px;
+}#button7{
+    left:530px;
+    top:245px;
+    width:250px;
+    border-radius:20px;
+    background: linear-gradient(45deg,transparent 0%, #ff00a9 5%);
+    box-shadow:10px 0 0 rgba(0, 255, 215, 0.98),
+    -5px -5px 25px rgb(255, 11, 176);
 }
 
 button, button::after{                               /* 赛博朋克风格的按钮 */
@@ -104,7 +114,7 @@ button, button::after{                               /* 赛博朋克风格的按
     font-weight:700;
     bottom:10px;
     right:10px;
-    background: linear-gradient(45deg, rgba(215, 40, 215, 0.47) 7%, #ff00a9 5%);
+    background: linear-gradient(45deg, rgb(179, 43, 156) 7%, #ff00a9 5%);
     border:10px;
     color:#fff;
     letter-spacing:3px;
@@ -146,8 +156,10 @@ button::after{
     content:'REGISTER';
 }#button5::after{
     content:'LOGIN';
-}#button5::after{
+}#button6::after{
     content:'START NOW';
+}#button7::after{
+    content:'BACK';
 }
 @keyframes glitch{
     0%{
@@ -189,6 +201,7 @@ button::after{
 
 .textbox{
     transition:absolute;
+    text-align:center;
     font-size:1.5em;
     font-weght:600;
     background: -webkit-linear-gradient(315deg, #f900ff, #00ffd6);
@@ -221,6 +234,13 @@ button::after{
     margin-left:140px;
     height:48px;
     width:300px;
+    color: #000000;
+}
+#textbox4{
+    position:absolute;
+    width:310px;
+    margin-top:-5px;                  /*调整文本框位置用margin-x*/
+    margin-left:-25px;
     color: #000000;
 }
 
