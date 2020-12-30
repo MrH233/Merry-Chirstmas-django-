@@ -1,4 +1,4 @@
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, Http404
 from django.shortcuts import render
 from django.views.decorators.csrf import csrf_exempt
 
@@ -48,11 +48,33 @@ def search(request):
 
 
 def letter_game(request):
-    s = 0
-    # if request.method == 'POST':
     return render(request, 'temp1/letter_game.html')
 
 
 def letter_game_register(request):
     return render(request, 'temp1/letter_game_register.html')
+
+
+@csrf_exempt
+def letter_game_login(request):
+    if request.method == 'POST':
+        name = request.POST.get('username')
+        password = request.POST.get('password')
+        try:
+            res = models.letter_user.objects.filter(username=name)[0]   # 返回的res对象是记录集合，而不是单个个体，但是记录不支持负索引
+        except IndexError:
+            raise Http404('找不到对应用户!')
+        if res.password == password:
+            return HttpResponseRedirect('/letter_game/play')
+        else:
+            raise Http404('用户名或密码错误!')
+    elif request.method == 'GET':
+        return render(request, 'temp1/letter_game_login.html', {'error_msg': ''})   # 默认get方法时返回的页面
+
+# HttpResponseRedirect 页面跳转 render 页面渲染
+# Http404 配合raise使用来实现404报错
+
+
+def letter_game_play(request):
+    return render(request, 'temp1/letter_game_play.html')
 

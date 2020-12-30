@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale">
+    <title>字母游戏</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'letter_game_style.css' %}">
+</head>
+<body>
+    <div class="container">
+        <br/><br/>
+        <div class="main">
+            <br/>
+            <form method="post">
+            {# csrf_token验证 #}
+                {% csrf_token %}
+                <input class="textbox" id="textbox1" type="text" name="username" placeholder="请输入用户名">
+                <br/>
+                <input class="textbox" id="textbox2" type="password" name="password" placeholder="请输入密码">
+                <button id="button5" type="submit" >LOGIN</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
+
+</body>
+</html>

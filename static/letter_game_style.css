@@ -15,7 +15,7 @@ body
 {
     margin:0;
     padding:0;
-    position:absolute;
+    position:relative;
     width: 100vw;
     height: 100vh;
     background:-webkit-linear-gradient(315deg, rgba(0, 255, 215, 0.98), rgb(255, 0, 169));
@@ -26,14 +26,14 @@ body
 }
 .main
 {
-    position:relative;
+    position:absolute;
     width: 600px;
     height:450px;
-    border:3px solid #333333;
+    border:5px solid #333333;
     margin-top:20px;
     overflow:hidden;
-    border-radius:20px;
-    background:-webkit-linear-gradient(315deg, #000000, #000000);
+    border-radius:50px;
+    background:-webkit-linear-gradient(315deg, #72006d, #026a58);
     box-shadow:20px 20px 40px 10px rgba(0, 255, 215, 0.98),
     -20px -20px 60px 10px rgb(255, 11, 176);
     /*30px -30px 80px rgba(0, 255, 215, 0.98),*/
@@ -52,36 +52,175 @@ body
     font-family: "Roboto", "Lucida Grande", "DejaVu Sans", "Bitstream Vera Sans", Verdana, Arial, sans-serif;
     font-weight:600;
     text-align:center;
-    left:175px;
+    left:165px;
     color: #ffffff;
+    user-select:none;
 }
-.button1{
+#font-play{
+    left:112px;
+    top:20px;
+}
+.buttonx{                     /* 此处不要取名button不然会和button属性搞混 */
     position:absolute;
-    content:'注册';
-    font-size:1.3em;
+    font-size:1.5em;
     font-family: "Roboto", "Lucida Grande", "DejaVu Sans", "Bitstream Vera Sans", Verdana, Arial, sans-serif;
-    font-weight:500;
+    font-weight:700;
     text-align:center;
     height:75px;
     width:120px;
     border-radius:30px;
-    left:235px;
-    top:150px;
-    color: #000000;
+    color: #ffffff;
+    background: -webkit-linear-gradient(315deg, #dc0fd2, #07c2a3);
 }
-.button2{
-    position:absolute;
-    content:'注册';
-    font-size:1.3em;
-    font-family: "Roboto", "Lucida Grande", "DejaVu Sans", "Bitstream Vera Sans", Verdana, Arial, sans-serif;
-    font-weight:500;
-    text-align:center;
-    width:120px;
-    height:75px;
-    border-radius:30px;
-    left:235px;
-    top:280px;
-    color: #000000;
+#button1{
+    left:275px;
+    bottom:130px;
+}
+#button2{
+    right:10px;
+    top:0;
+}
+#button3{
+    right:294px;
+    top:123px;
+}
+#button4{
+    left:150px;
+    top:30px;
+}
+#button5{
+    left:150px;
+    top:50px;
+}
+#button6{
 }
 
+button, button::after{                               /* 赛博朋克风格的按钮 */
+    width:280px;
+    height:16px;
+    font-size:32px;
+    padding-bottom:80px;
+    font-family:'Bebas Neue', cursive;
+    font-weight:700;
+    bottom:10px;
+    right:10px;
+    background: linear-gradient(45deg, rgba(215, 40, 215, 0.47) 7%, #ff00a9 5%);
+    border:10px;
+    color:#fff;
+    letter-spacing:3px;
+    line-height:88px;
+    box-shadow:6px 0 0 rgba(0, 255, 215, 0.98),
+    -5px -5px 25px rgb(255, 11, 176);
+    outline:transparent;
+    position:relative;
+    user-select:none;
+}
+button::after{
+    --slice-0:inset(50% 50% 50% 50%);   /*设置切片*/
+    --slice-1:inset(80% -6px 90% 0);
+    --slice-2:inset(50% -6px 20% 0);
+    --slice-3:inset(10% -6px 85% 0);
+    --slice-4:inset(40% -6px 48% 0);
+    --slice-5:inset(80% -6px 5% 0);
+
+    content:'START NOW';
+    display:block;
+    position:absolute;
+    top:0;
+    left:0;
+    bottom:0;
+    background: linear-gradient(45deg, transparent 3%, rgba(0, 255, 215, 0.98) 3%, rgba(0, 255, 215, 0.98) 5%, #ff00a9 5%);
+    text-shadow:-3px -3px 0 #F8F005, 3px 3px 0 rgba(0, 255, 215, 0.98);
+    clip-path:var(--slice-0);
+    animation:glitch 2s linear infinite;
+    animation-timing-function:steps(5,end);
+/*    transform:translate(-20px, 10px);*/
+}
+#button1::after{
+    content:'TO LOGIN';
+}#button2::after{
+    content:'TO REGISTER';
+}#button3::after{
+    content:'BACK TO';
+}#button4::after{
+    content:'REGISTER';
+}#button5::after{
+    content:'LOGIN';
+}#button5::after{
+    content:'START NOW';
+}
+@keyframes glitch{
+    0%{
+        clip-path: var(--slice-1);
+        transform:translate(-10px,15px);
+    }10%{
+        clip-path: var(--slice-3);
+        transform:translate(0px,5px);
+    }20%{
+        clip-path: var(--slice-2);
+        transform:translate(-5px,0);
+    }30%{
+        clip-path: var(--slice-3);
+        transform:translate(5px,0);
+    }40%{
+        clip-path: var(--slice-1);
+        transform:translate(-10px,10px);
+    }50%{
+        clip-path: var(--slice-2);
+        transform:translate(-5px,5px);
+    }60%{
+        clip-path: var(--slice-4);
+        transform:translate(-5px,10px);
+    }70%{
+        clip-path: var(--slice-5);
+        transform:translate(5px,10px);
+    }80%{
+        clip-path: var(--slice-1);
+        transform:translate(-5px,-5px);
+    }90%{
+        clip-path: var(--slice-3);
+        transform:translate(-8px,10px);
+    }100%{
+        clip-path: var(--slice-5);
+        transform:translate(0);
+    }
+}
+
+
+.textbox{
+    transition:absolute;
+    font-size:1.5em;
+    font-weght:600;
+    background: -webkit-linear-gradient(315deg, #f900ff, #00ffd6);
+    height:60px;
+    width:280px;
+    border-radius:10px;
+    padding:0;
+    box-shadow:2px 2px 20px rgba(0, 255, 215, 0.98),
+    -2px -2px 20px rgb(255, 11, 176);
+}
+/*修改提示文字格式*/
+::-webkit-input-placeholder{
+    color: #3b3b3b;
+    text-align:center;
+}
+
+/* .class来修饰大类 #id来修正类内小个体  */
+#textbox1{
+    margin-top:60px;                  /*调整文本框位置用margin-x*/
+    margin-left:150px;
+    color: #000000;
+}
+#textbox2{
+    margin-top:60px;                  /*调整文本框位置用margin-x*/
+    margin-left:150px;
+    color: #000000;
+}
+#textbox3{
+    margin-top:20px;
+    margin-left:140px;
+    height:48px;
+    width:300px;
+    color: #000000;
+}
 

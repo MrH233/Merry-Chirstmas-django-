@@ -20,11 +20,13 @@ from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 urlpatterns = {
     path('admin/', admin.site.urls),
-    path('index$', views.index),
+    path('index', views.index),
     path('db_handle', views.db_handle),
     path('', views.search),
     path('letter_game', views.letter_game),
-    path('letter_game_register', views.letter_game_register),
+    path('letter_game/register', views.letter_game_register),
+    path('letter_game/login', views.letter_game_login),
+    path('letter_game/play', views.letter_game_play),
 
     # set(staticfiles_urlpatterns()),
 }

@@ -18,3 +18,10 @@ class nw(models.Model):
 class words(models.Model):
     word = models.CharField(max_length=32)
     transition = models.CharField(max_length=128)
+
+
+class letter_user(models.Model):
+    username = models.CharField(max_length=64)
+    password = models.CharField(max_length=64)
+    phone = models.CharField(max_length=32)
+    QQ = models.CharField(max_length=32)
