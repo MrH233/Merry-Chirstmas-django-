@@ -67,7 +67,7 @@ def letter_game_register(request):
                 messages.info(request, '请检查联系方式或QQ格式!')
                 return render(request, 'temp1/letter_game_register.html')
             else:
-                letter_user = models.letter_user(username=user, password=password, phone=phone, QQ=qq)
+                letter_user = models.letter_user(username=user, password=password, phone=phone, QQ=qq, score=0)
                 letter_user.save()  # 保存、写入数据库
                 messages.info(request, '注册成功！')
                 return render(request, 'temp1/letter_game_register.html')
@@ -79,7 +79,7 @@ def letter_game_register(request):
 
 
 # message 后面如果是render,则未跳转界面，可以看见提示，
-# message 后面如果是httpresponse,则跳转界面，看不见提示。
+# message 后面如果是Httpresponse,则跳转界面，看不见提示。
 
 
 @csrf_exempt

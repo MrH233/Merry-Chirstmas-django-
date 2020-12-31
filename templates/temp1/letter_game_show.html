@@ -3,6 +3,7 @@
 <head>
     {% load static %}
     <meta charset="UTF-8">
+    <link rel="shortcut icon" href="{% static 'type2_1.ico' %}">
     <meta name="viewport" content="width=device-width, initial-scale">
     <title>字母游戏</title>
     <link rel="stylesheet" type="text/css" href="{% static 'letter_game_style.css' %}">
@@ -11,8 +12,8 @@
     <div class="container">
         <div class="main">
             <div class="fontbox">
-                <p class="font3" id="font-play">{{ word }}</p>
-                <p class="font4" id="font-play">Tips: {{ tips }}</p>
+                <p class="font" id="font-play2">{{ word }}</p>
+                <p class="font" id="font-play">Tips: {{ tips }}</p>
             </div>
         </div>
         <form method="post">

@@ -10,7 +10,6 @@ body
     margin:0;
     padding:0;
 }
-
 .container
 {
     margin:0;
@@ -39,7 +38,8 @@ body
     /*30px -30px 80px rgba(0, 255, 215, 0.98),*/
     /*10px 10px 80px rgba(0, 255, 215, 0.98),*/
 }
-.fontbox{
+.fontbox
+{
     position:absolute;
     display: inline-block;
     right:122px;
@@ -48,51 +48,56 @@ body
     margin:auto;
     padding:0;
 }
-.font1{
+.font
+{
+    position:relative;
+    font-size:1.2em;
+    font-family: "Roboto", "Lucida Grande", "DejaVu Sans", "Bitstream Vera Sans", Verdana, Arial, sans-serif;
+    font-weight:600;
+    color: #ffffff;
+    user-select:none;
+}
+.font1
+{
     font-size:2em;
     align-content:center;
     font-family: SimSun-ExtB, serif;
     font-weight:600;
     /*text-decoration:underline;*/
 }
-.font2{
+#font2{
     position:absolute;
     font-size:2.5em;
-    font-family: "Roboto", "Lucida Grande", "DejaVu Sans", "Bitstream Vera Sans", Verdana, Arial, sans-serif;
-    font-weight:600;
     text-align:center;
-    color: #ffffff;
-    user-select:none;
+    left:100px;
+    top:12px;
 }
-.font3{
-    position:relative;
+#font3{                             /* 闲置中 */
     display: inline-block;
     vertical-align:middle;
     font-size:2.8em;
-    font-family: "Roboto", "Lucida Grande", "DejaVu Sans", "Bitstream Vera Sans", Verdana, Arial, sans-serif;
-    font-weight:600;
     text-align:center;
     justify-content:center;
     margin-top: 30px;
     margin-left: 0;
-    color: #ffffff;
-    user-select:none;
-}
-.font4{
-    position:relative;
-    font-size:1.2em;
-    font-family: "Roboto", "Lucida Grande", "DejaVu Sans", "Bitstream Vera Sans", Verdana, Arial, sans-serif;
-    font-weight:600;
-    margin-top: 10px;
-    margin-left:0;
-    color: #ffffff;
-    user-select:none;
 }
 #font-play{
-    left:112px;
-    top:20px;
+    margin-top: 10px;
+    margin-left: 0;
+    left: 112px;
+    bottom: 10px;
 }
-.buttonx{                     /* 此处不要取名button不然会和button属性搞混 */
+#font-play2{
+    /*display: inline-block;*/
+    /*vertical-align:middle;*/
+    /*justify-content:center;*/
+    font-size:3.0em;
+    text-align:center;
+    margin-top: 60px;
+    margin-left: 220px;
+}
+.buttonx
+{                     /* 此处不要取名button不然会和button属性搞混 */
     position:absolute;
     font-size:1.5em;
     font-family: "Roboto", "Lucida Grande", "DejaVu Sans", "Bitstream Vera Sans", Verdana, Arial, sans-serif;
@@ -142,7 +147,8 @@ body
     top:145px;
 }
 
-button, button::after{                               /* 赛博朋克风格的按钮 */
+button, button::after
+{                               /* 赛博朋克风格的按钮 */
     width:280px;
     height:16px;
     font-size:32px;
@@ -162,7 +168,8 @@ button, button::after{                               /* 赛博朋克风格的按
     position:relative;
     user-select:none;
 }
-button::after{
+button::after
+{
     --slice-0:inset(50% 50% 50% 50%);   /*设置切片*/
     --slice-1:inset(70% -6px 60% 0);
     --slice-2:inset(50% -6px 20% 0);
@@ -183,7 +190,8 @@ button::after{
     animation-timing-function:steps(6, end);
 /*    transform:translate(-20px, 10px);*/
 }
-button:hover::after {
+button:hover::after
+{
     animation:glitch 0s linear infinite;
 }
 button:hover
@@ -191,9 +199,9 @@ button:hover
     box-shadow:6px 6px 0 rgba(0, 255, 215, 0.98),
     -5px -5px 25px rgb(255, 11, 176);
 }
+
 #button1::after{
     content:'TO LOGIN';
-
 }#button2::after{
     content:'TO REGISTER';
 }#button3::after{
@@ -207,6 +215,7 @@ button:hover
 }#button7::after{
     content:'BACK';
 }
+
 @keyframes glitch{
     0%{
         clip-path: var(--slice-1);
@@ -244,8 +253,8 @@ button:hover
     }
 }
 
-
-.textbox{
+.textbox
+{
     transition:absolute;
     text-align:center;
     font-size:1.5em;
@@ -260,7 +269,8 @@ button:hover
     -3px -1px 10px rgb(255, 11, 176);
 }
 /*修改提示文字格式*/
-::-webkit-input-placeholder{
+::-webkit-input-placeholder
+{
     color: #3b3b3b;
     text-align:center;
 }
@@ -293,7 +303,7 @@ button:hover
 #textbox5{
     position:absolute;
     width:310px;
-    margin-top:45px;                  /*调整文本框位置用margin-x*/
+    margin-top:41px;                  /*调整文本框位置用margin-x*/
     margin-left:-25px;
     color: #000000;
 }
