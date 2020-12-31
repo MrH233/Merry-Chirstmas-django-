@@ -25,3 +25,4 @@ class letter_user(models.Model):
     password = models.CharField(max_length=64)
     phone = models.CharField(max_length=32)
     QQ = models.CharField(max_length=32)
+    score = models.IntegerField()

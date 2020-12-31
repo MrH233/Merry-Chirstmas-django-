@@ -39,6 +39,15 @@ body
     /*30px -30px 80px rgba(0, 255, 215, 0.98),*/
     /*10px 10px 80px rgba(0, 255, 215, 0.98),*/
 }
+.fontbox{
+    position:absolute;
+    display: inline-block;
+    right:122px;
+    width:600px;
+    text-align:center;
+    margin:auto;
+    padding:0;
+}
 .font1{
     font-size:2em;
     align-content:center;
@@ -52,7 +61,30 @@ body
     font-family: "Roboto", "Lucida Grande", "DejaVu Sans", "Bitstream Vera Sans", Verdana, Arial, sans-serif;
     font-weight:600;
     text-align:center;
-    left:165px;
+    color: #ffffff;
+    user-select:none;
+}
+.font3{
+    position:relative;
+    display: inline-block;
+    vertical-align:middle;
+    font-size:2.8em;
+    font-family: "Roboto", "Lucida Grande", "DejaVu Sans", "Bitstream Vera Sans", Verdana, Arial, sans-serif;
+    font-weight:600;
+    text-align:center;
+    justify-content:center;
+    margin-top: 30px;
+    margin-left: 0;
+    color: #ffffff;
+    user-select:none;
+}
+.font4{
+    position:relative;
+    font-size:1.2em;
+    font-family: "Roboto", "Lucida Grande", "DejaVu Sans", "Bitstream Vera Sans", Verdana, Arial, sans-serif;
+    font-weight:600;
+    margin-top: 10px;
+    margin-left:0;
     color: #ffffff;
     user-select:none;
 }
@@ -96,13 +128,18 @@ body
     right:10px;
     top:130px;
 }#button7{
-    left:530px;
-    top:245px;
-    width:250px;
+    position:absolute;
+    right:120px;
+    bottom:100px;
+    width:270px;
     border-radius:20px;
     background: linear-gradient(45deg,transparent 0%, #ff00a9 5%);
     box-shadow:10px 0 0 rgba(0, 255, 215, 0.98),
     -5px -5px 25px rgb(255, 11, 176);
+}
+#button8{
+    right:10px;
+    top:145px;
 }
 
 button, button::after{                               /* 赛博朋克风格的按钮 */
@@ -119,15 +156,15 @@ button, button::after{                               /* 赛博朋克风格的按
     color:#fff;
     letter-spacing:3px;
     line-height:88px;
-    box-shadow:6px 0 0 rgba(0, 255, 215, 0.98),
-    -5px -5px 25px rgb(255, 11, 176);
+    box-shadow:4px 0 0 rgba(0, 255, 215, 0.98);
+    /*-5px -5px 25px rgb(255, 11, 176);*/
     outline:transparent;
     position:relative;
     user-select:none;
 }
 button::after{
     --slice-0:inset(50% 50% 50% 50%);   /*设置切片*/
-    --slice-1:inset(80% -6px 90% 0);
+    --slice-1:inset(70% -6px 60% 0);
     --slice-2:inset(50% -6px 20% 0);
     --slice-3:inset(10% -6px 85% 0);
     --slice-4:inset(40% -6px 48% 0);
@@ -143,11 +180,20 @@ button::after{
     text-shadow:-3px -3px 0 #F8F005, 3px 3px 0 rgba(0, 255, 215, 0.98);
     clip-path:var(--slice-0);
     animation:glitch 2s linear infinite;
-    animation-timing-function:steps(5,end);
+    animation-timing-function:steps(6, end);
 /*    transform:translate(-20px, 10px);*/
+}
+button:hover::after {
+    animation:glitch 0s linear infinite;
+}
+button:hover
+{
+    box-shadow:6px 6px 0 rgba(0, 255, 215, 0.98),
+    -5px -5px 25px rgb(255, 11, 176);
 }
 #button1::after{
     content:'TO LOGIN';
+
 }#button2::after{
     content:'TO REGISTER';
 }#button3::after{
@@ -207,10 +253,11 @@ button::after{
     background: -webkit-linear-gradient(315deg, #f900ff, #00ffd6);
     height:60px;
     width:280px;
-    border-radius:10px;
+    border-radius:15px;
+    border:0 solid;
     padding:0;
-    box-shadow:2px 2px 20px rgba(0, 255, 215, 0.98),
-    -2px -2px 20px rgb(255, 11, 176);
+    box-shadow:5px 0 8px rgba(62, 215, 194, 0.98),
+    -3px -1px 10px rgb(255, 11, 176);
 }
 /*修改提示文字格式*/
 ::-webkit-input-placeholder{
@@ -240,6 +287,13 @@ button::after{
     position:absolute;
     width:310px;
     margin-top:-5px;                  /*调整文本框位置用margin-x*/
+    margin-left:-25px;
+    color: #000000;
+}
+#textbox5{
+    position:absolute;
+    width:310px;
+    margin-top:45px;                  /*调整文本框位置用margin-x*/
     margin-left:-25px;
     color: #000000;
 }

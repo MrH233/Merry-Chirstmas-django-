@@ -18,6 +18,14 @@
                 <input class="textbox" id="textbox4" type="text" name="hardlevel" placeholder="Please choose the level">
                 <button id="button6" type="submit" onclick="location = '/'">START NOW</button>
         </form>
+        {% if messages %}
+            <button id="button7" type="submit" onclick="location='/letter_game'">BACK</button>
+            <script>
+                {% for msg in messages %}
+                    alert('{{ msg.message }}')
+                {% endfor %}
+            </script>
+        {% endif %}
     </div>
 </body>
 </html>

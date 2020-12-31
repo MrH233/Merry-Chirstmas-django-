@@ -1,10 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    {% load static %}
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale">
+    <title>字母游戏</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'letter_game_style.css' %}">
 </head>
 <body>
-
+    <div class="container">
+        <div class="main">
+            <div class="fontbox">
+                <p class="font3" id="font-play">{{ word }}</p>
+                <p class="font4" id="font-play">Tips: {{ tips }}</p>
+            </div>
+        </div>
+        <form method="post">
+                <input class="textbox" id="textbox5" type="text" name="answer" placeholder="Please input the right word.">
+                <button id="button8" type="submit" name="startnow" onclick="location = '/'">ANSWER</button>
+        </form>
+        {% if messages %}
+            <button id="button7" type="submit" onclick="location='/letter_game'">EXIT</button>
+            <script>
+                {% for msg in messages %}
+                    alert('{{ msg.message }}')
+                {% endfor %}
+            </script>
+        {% endif %}
+    </div>
 </body>
 </html>
