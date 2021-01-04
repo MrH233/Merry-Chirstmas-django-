@@ -38,6 +38,11 @@ body
     /*30px -30px 80px rgba(0, 255, 215, 0.98),*/
     /*10px 10px 80px rgba(0, 255, 215, 0.98),*/
 }
+#black_ground
+{
+    background:black;
+    top:80px;
+}
 .fontbox
 {
     position:absolute;
@@ -145,6 +150,10 @@ body
 #button8{
     right:10px;
     top:145px;
+}#button9{
+    right:10px;
+    top:275px;
+    border-radius:15px;
 }
 
 button, button::after
@@ -171,11 +180,11 @@ button, button::after
 button::after
 {
     --slice-0:inset(50% 50% 50% 50%);   /*设置切片*/
-    --slice-1:inset(70% -6px 60% 0);
-    --slice-2:inset(50% -6px 20% 0);
-    --slice-3:inset(10% -6px 85% 0);
-    --slice-4:inset(40% -6px 48% 0);
-    --slice-5:inset(80% -6px 5% 0);
+    --slice-1:inset(70% -6px 60% 10px);
+    --slice-2:inset(50% -6px 20% 10px);
+    --slice-3:inset(10% -6px 85% 10px);
+    --slice-4:inset(40% -6px 48% 10px);
+    --slice-5:inset(80% -6px 5% 10px);
 
     content:'START NOW';
     display:block;
@@ -187,7 +196,7 @@ button::after
     text-shadow:-3px -3px 0 #F8F005, 3px 3px 0 rgba(0, 255, 215, 0.98);
     clip-path:var(--slice-0);
     animation:glitch 2s linear infinite;
-    animation-timing-function:steps(6, end);
+    animation-timing-function:steps(2, end);
 /*    transform:translate(-20px, 10px);*/
 }
 button:hover::after
@@ -214,12 +223,16 @@ button:hover
     content:'START NOW';
 }#button7::after{
     content:'BACK';
+}#button8::after{
+    content:'ANSWER';
+}#button9::after{
+    content:'BACK';
 }
 
 @keyframes glitch{
     0%{
-        clip-path: var(--slice-1);
-        transform:translate(-10px,15px);
+        clip-path: var(--slice-2);
+        transform:translate(-10px,10px);
     }10%{
         clip-path: var(--slice-3);
         transform:translate(0px,5px);
@@ -231,15 +244,15 @@ button:hover
         transform:translate(5px,0);
     }40%{
         clip-path: var(--slice-1);
-        transform:translate(-10px,10px);
+        transform:translate(-8px,5px);
     }50%{
         clip-path: var(--slice-2);
         transform:translate(-5px,5px);
     }60%{
-        clip-path: var(--slice-4);
+        clip-path: var(--slice-5);
         transform:translate(-5px,10px);
     }70%{
-        clip-path: var(--slice-5);
+        clip-path: var(--slice-4);
         transform:translate(5px,10px);
     }80%{
         clip-path: var(--slice-1);

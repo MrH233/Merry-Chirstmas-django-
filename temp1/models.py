@@ -26,3 +26,9 @@ class letter_user(models.Model):
     phone = models.CharField(max_length=32)
     QQ = models.CharField(max_length=32)
     score = models.IntegerField()
+
+
+class user_fault(models.Model):
+    username = models.CharField(max_length=64)
+    faultword = models.CharField(max_length=128)
+

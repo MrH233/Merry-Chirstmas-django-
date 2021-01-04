@@ -27,8 +27,8 @@ urlpatterns = {
     path(r'letter_game', views.letter_game),
     path(r'letter_game/register', views.letter_game_register),
     path(r'letter_game/login', views.letter_game_login),
-    url(r'^letter_game/play/([0-9a-zA-Z]+)$', views.letter_game_play),
-    url(r'^letter_game/show/([0-9a-zA-Z]+)$', views.letter_game_show),
-
+    url(r'^letter_game/play/([\u4e00-\u9fa5_a-zA-Z0-9]+)$', views.letter_game_play),
+    url(r'^letter_game/show/([\u4e00-\u9fa5_a-zA-Z0-9]+)$', views.letter_game_show),
+    path(r'video', views.loading_video),
     # set(staticfiles_urlpatterns()),
 }

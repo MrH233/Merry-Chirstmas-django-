@@ -36,6 +36,8 @@ def search(request):
             return render(request, 'temp1/db_ans.html')
         elif name == "letter":
             return HttpResponseRedirect('/letter_game')
+        elif name == "video":
+            return HttpResponseRedirect('/video')
         elif name == "game":
             return render(request, 'temp1/game.html')
         elif 97 <= ord(name[0]) <= 122:
@@ -115,7 +117,11 @@ def letter_game_play(request, user):
         hard = request.POST.get('hardlevel')
         try:
             if not hard:
-                messages.success(request, '请输入难度.(level1~level3)')
+                messages.success(request, '请输入难度或要查询的用户.(level1~level3)')
+                return render(request, 'temp1/letter_game_play.html')
+            elif models.letter_user.objects.filter(username=hard):
+                score = models.letter_user.objects.filter(username=hard)[0].score
+                messages.success(request, f'{hard}用户已得{score}分!')
                 return render(request, 'temp1/letter_game_play.html')
             elif hard[:5] != 'level' or int(hard[5:]) > 3 or int(hard[5:]) < 1:
                 messages.success(request, '请输入正确难度.(level1~level3)')
@@ -134,11 +140,12 @@ def letter_game_play(request, user):
 
 
 ran = random.randint(1, 5500)
+count = 0
 
 
 @csrf_exempt
 def letter_game_show(request, user):
-    global ran
+    global ran, count
     user = user.split('/')[-1]
     record = models.words.objects.get(id=ran)
     word = list(record.word)
@@ -149,19 +156,32 @@ def letter_game_show(request, user):
 
     if request.method == 'POST':
         ans = request.POST.get('answer')
-        if ans == '':
+        if count > 4:
+            del_object = models.letter_user.objects.get(username=user)
+            del_object.score = del_object.score + 1
+            del_object.save()
+            change_object = models.user_fault(username=user, faultword=record.word)
+            change_object.save()
+            messages.info(request, f'回答次数过多，答案是{record.word}，扣一分!')
+            count = 0          # 刷新计数器
+            ran = random.randint(1, 5500)  # 刷新数据
+            return HttpResponseRedirect(f'/letter_game/show/{user}')
+        elif ans == '':
             messages.info(request, '请输入答案!')
             return render(request, 'temp1/letter_game_show.html', {'word': word, 'tips': tips})
         elif ans != record.word:
-            messages.info(request, f'猜错了噢，请再试试!')
+            count += 1
+            messages.info(request, f'猜错了噢，还有{4-count}次机会，请再试试!')
             return render(request, 'temp1/letter_game_show.html', {'word': word, 'tips': tips})
         elif ans == record.word:
             add_object = models.letter_user.objects.get(username=user)
             add_object.score = add_object.score + 1
             add_object.save()
             messages.info(request, f'回答正确，答案就是{ans}，得一分!')
+            count = 0         # 刷新计数器
             ran = random.randint(1, 5500)  # 刷新数据
             return HttpResponseRedirect(f'/letter_game/show/{user}')    # 用HttpResponseRedirect而非render,因为渲染时采用的是先前数据，而直接跳转则不会
+
     elif request.method == 'GET':
         if not models.letter_user.objects.filter(username=user):
             messages.info(request, '非法进入！')
@@ -176,3 +196,7 @@ def letter_game_show(request, user):
 # Http404 配合raise使用来实现404报错
 # message 后面如果是render,则未跳转界面，可以看见提示，
 # message 后面如果是httpresponse,则跳转界面，看不见提示。
+
+
+def loading_video(request):
+    return render(request, "temp1/video.html")
