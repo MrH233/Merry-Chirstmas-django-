@@ -1,2 +1,2 @@
-# django_webwork
+# Merry Cristmas(django_webwork)
 It's web project based on django structure, which has multiple functions. It links to a small database--sqlite, which is easy to use. The symbol of Christmas lies on both sides, which is decorated navigation to certain website. And the search-box can give wishes out , if your name are recorded in the database.And we add cipher'2021' and 'letter' to open a new World space,waiting for you to explore! What's more, it can be expanded to be a search engine only if the database as rich as users demand, and there are surprises inside once you give the right code correctly! Welcome to use and share, but not for business !
